@@ -23,6 +23,7 @@ public class Processor : IProcessor
     {
         try
         {
+            _logger.LogInformation("Processing new message: {message}", message);
             var importMessage = JsonSerializer.Deserialize<ImportMessageDto>(message);
             if (importMessage == null)
                 throw new Exception("Fail to Deserialize message");
